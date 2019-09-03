@@ -951,7 +951,7 @@ func (we *WorkflowExecutor) monitorAnnotations(ctx context.Context) <-chan struc
 	// directly from kubernetes API. The controller uses this to fast-track notification of annotations
 	// instead of waiting for the volume file to get updated (which can take minutes)
 	sigs := make(chan os.Signal, 1)
-	signal.Notify(sigs, syscall.SIGUSR2)
+	signal.Notify(sigs, syscall.SIGINT)
 
 	we.setExecutionControl()
 

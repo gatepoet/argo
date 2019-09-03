@@ -96,7 +96,6 @@ func (p *PNSExecutor) enterChroot() error {
 	if err := p.mainFS.Chdir(); err != nil {
 		return errors.InternalWrapErrorf(err, "failed to chdir to main filesystem: %v", err)
 	}
-	err := syscall.Chroot(".")
 	if err != nil {
 		return errors.InternalWrapErrorf(err, "failed to chroot to main filesystem: %v", err)
 	}
@@ -108,7 +107,6 @@ func (p *PNSExecutor) exitChroot() error {
 	if err := p.rootFS.Chdir(); err != nil {
 		return errors.InternalWrapError(err)
 	}
-	err := syscall.Chroot(".")
 	if err != nil {
 		return errors.InternalWrapError(err)
 	}

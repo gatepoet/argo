@@ -1,0 +1,12 @@
+image: gatepoet/argoexec:v2.3.0
+manifests:
+  -
+    image: gatepoet/argoexec:v2.3.0-linux-amd64
+    platform:
+      architecture: amd64
+      os: linux
+  -
+    image: gatepoet/argoexec:v2.3.0-windows-amd64
+    platform:
+      architecture: amd64
+      os: windows
